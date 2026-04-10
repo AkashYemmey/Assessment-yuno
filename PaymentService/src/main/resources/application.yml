@@ -1,8 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://mongo:27017/payments_db
-
-  redis:
-    host: redis
-    port: 6379
+      uri: mongodb://localhost:27017/payments_db
+    redis:
+      host: localhost
+      port: 6379
