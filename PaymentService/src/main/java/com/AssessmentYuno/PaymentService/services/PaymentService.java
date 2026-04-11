@@ -54,7 +54,10 @@ public class PaymentService {
 
     private PaymentResponse processPayment(@Valid PaymentRequest request, String key) {
         List<ProviderType> providers = routingEngine.route(request.getType());
-
+        if (providers.isEmpty()) {
+            throw new RuntimeException("No provider available");
+        }
+        log.info("Processing payment with key: {}", key);
         Payment payment=Payment.builder()
                 .amount(request.getAmount())
                 .currency(request.getCurrency())
@@ -90,6 +93,7 @@ public class PaymentService {
     private boolean retry(Provider provider, Payment payment) {
         int MAX_RETRY=2;// we can consider it as an application property, but during testing this will cause failure. reason spring application context is not loaded.
         for (int i = 0; i < 2; i++) {
+            log.warn("Retry attempt {}", i);
             if (provider.process(payment)) {
                 return true;
             }
@@ -109,6 +113,6 @@ public class PaymentService {
     }
 
     public Payment get(String id) {
-        return paymentRepository.findById(id).orElse(Payment.builder().message("No payment Id found").build());
+        return paymentRepository.findById(id).orElseThrow(() -> new RuntimeException("Payment not found"));
     }
 }

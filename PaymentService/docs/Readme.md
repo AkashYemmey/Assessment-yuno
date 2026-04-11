@@ -45,8 +45,8 @@ The goal is to simulate how modern payment systems ensure **high availability, c
 ## 🧠 High-Level Design Overview
 
 Architecture Layers:
-![high-level-architecture.png](src/main/resources/docs/high-level-architecture.png)
-![Flow_explanation.png](src/main/resources/docs/Flow_explanation.png)
+![high-level-architecture.png](high-level-architecture.png)
+![Flow_explanation.png](Flow_explanation.png)
 ### Key Design Patterns Used
 
 * Strategy Pattern → Provider abstraction
@@ -184,7 +184,7 @@ curl -X POST http://localhost:8080/api/v1/payments
 ## 📄 Test Documentation
 
 Detailed test scenarios are available in:
-src/main/resources/docs/test-doc.md
+docs/test-doc.md 
 ## 📊 Conclusion
 
 This system demonstrates how real-world payment orchestration platforms handle:
