@@ -1,8 +1,9 @@
 package com.AssessmentYuno.PaymentService.services.provider;
 
 import com.AssessmentYuno.PaymentService.entities.Payment;
+import com.AssessmentYuno.PaymentService.entities.ProviderType;
 
 public interface Provider {
-    void process(Payment payment);
-    String getName();
+    boolean process(Payment payment);
+    ProviderType getName();
 }
