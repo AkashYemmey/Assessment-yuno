@@ -1,4 +1,4 @@
-Readme.md
+
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -6,7 +6,7 @@ target/
 .idea/
 ### STS ###
 .apt_generated
-.classpath
+.classpathg
 .factorypath
 .project
 .settings
